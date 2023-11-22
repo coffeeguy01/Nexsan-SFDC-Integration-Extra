@@ -1,0 +1,14 @@
+<manifest projecttype="ACCOUNTCUSTOMIZATION">
+  <projectname>Nexsan SFDC Integration</projectname>
+  <frameworkversion>1.0</frameworkversion>
+  <dependencies>
+    <features>
+      <feature required="true">SERVERSIDESCRIPTING</feature>
+      <feature required="false">CRM</feature>
+      <feature required="false">CREATESUITEBUNDLES</feature>
+    </features>
+    <files>
+      <file>/SuiteScripts/StorCentric/retrieve_saleforce_opp_cs.js</file>
+    </files>
+  </dependencies>
+</manifest>
