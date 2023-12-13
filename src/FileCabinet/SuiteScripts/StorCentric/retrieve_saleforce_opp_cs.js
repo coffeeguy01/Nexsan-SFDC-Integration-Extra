@@ -107,7 +107,8 @@ define(['N/search','N/ui/dialog'],
 								"custrecord_sfdc_opp_salesrep",
 								"custrecord_sfdc_opp_region",
 								"custrecordsfdc_opp_close_date",
-								"custrecord_sfdc_pricebook2id"
+								"custrecord_sfdc_pricebook2id",
+								"custrecord_sfdc_opp_pricebook_name"
 							]
 					});
 					var searchResultCount = customrecord_sfdc_opportunitiesSearchObj.runPaged().count;
@@ -154,6 +155,7 @@ define(['N/search','N/ui/dialog'],
 							var regionVal	= result.getValue(columns[14]);
 							var expClose	= new Date(result.getValue(columns[15]));
 							var priceBook	= result.getValue(columns[16]);
+							var priceBookName	= result.getValue(columns[17]);
 
 							log.debug('priceBook',priceBook);
 
@@ -164,15 +166,15 @@ define(['N/search','N/ui/dialog'],
 
 								dialog.alert({
 									title: 'Opportunity is already '+oppStage,
-									message: 'This Opportunity Registration '+oppReg+'-'+oppName+'is already at Salesforce stage '+oppStage+' and cannot be used for new estimates. Please create or use a new registration.'
+									message: 'This Opportunity Registration '+oppReg+'-'+oppName+'is already at Salesforce stage '+oppStage+' and cannot be used for new transactions. Please create or use a new registration.'
 								}).then(success).catch(failure);
 
 								return
 							}
 
 							//we add the full details so the details can be viewed.  the coloured font did not work in record View mode.
-							//var fieldVal	= '<font color = "blue">'+oppName+' ('+acctName+')</font>';
-							var fieldVal	= oppName+' ('+acctName+')';
+
+							var fieldVal	= oppName
 
 							if (oppName){
 								log.debug('updating fields');
@@ -218,10 +220,14 @@ define(['N/search','N/ui/dialog'],
 									value	: acctName
 								});
 
-
 								currentRec.setValue({
 									fieldId	: 'custbody_celigo_sfio_sf_pricebook_id',
 									value	: priceBook
+								});
+
+								currentRec.setValue({
+									fieldId	: 'custbody_st_sfdc_priceboook_name',
+									value	: priceBookName
 								});
 
 								currentRec.setValue({
