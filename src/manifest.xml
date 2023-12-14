@@ -17,16 +17,21 @@
       <feature required="false">PAYABLES</feature>
     </features>
     <objects>
+      <object>custbody_sps_ponum_from_salesorder</object>
       <object>custitem_sync_to_salesforce</object>
-      <object>customlist_sfdc_asset_type</object>
       <object>customrecord_sfdc_opportunities.custrecord_sfdc_opp_name</object>
+      <object>customlist_sps_po_acknowledgment</object>
       <object>customlist_ja_device_group</object>
+      <object>custbodyintegrationstatus</object>
+      <object>custbody_sps_acknowledgement_status</object>
+      <object>custbodyphone_end_user</object>
+      <object>customlistintegrationstatuses</object>
+      <object>custbody_sfdc_opp_netsuite_id</object>
+      <object>custitem_ja_device_family</object>
+      <object>customlist_sfdc_asset_type</object>
       <object>customrecord_sfdc_opportunities.custrecord_sfdc_opp_pricebook_name</object>
       <object>custitem_sfdc_asset_type__c</object>
       <object>custform_87_4306087_787</object>
-      <object>custbody_sfdc_opp_netsuite_id</object>
-      <object>customsearch6309</object>
-      <object>custitem_ja_device_family</object>
     </objects>
     <files>
       <file>/SuiteScripts/StorCentric/retrieve_saleforce_opp_cs.js</file>
